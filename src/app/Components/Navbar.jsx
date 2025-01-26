@@ -1,10 +1,18 @@
+import Link from "next/link";
+
 const Navbar = () => {
   return (
     <nav className="flex justify-center container mx-auto p-5">
       <ul className="flex justify-between items-center w-1/2">
-        <li>Home</li>
-        <li>Service</li>
-        <li>About</li>
+        <Link href="/">
+          <li>Home</li>
+        </Link>
+        <Link href="/services">
+          <li>Service</li>
+        </Link>
+        <Link href="/about">
+          <li>About</li>
+        </Link>
       </ul>
     </nav>
   );
