@@ -1,6 +1,7 @@
-import Link from "next/link";
+const page = async ({ params }) => {
+  // Access the route parameter
+  const { id } = await params;
 
-const page = () => {
   const data = [
     {
       id: 1,
@@ -59,19 +60,15 @@ const page = () => {
     },
   ];
 
+  // Find the specific coffee based on the id
+  const singleData = data.find((coffee) => coffee.id === parseInt(id));
+
   return (
     <div>
-      <p className="font-bold text-3xl">Service page</p>
-      <div>
-        {data.map((coffee, idx) => {
-          return (
-            <div key={idx} className="flex justify-center space-y-5">
-              <Link href={`/services/${coffee.id}`}>
-                <img className="h-20 w-20" src={coffee.image} />
-              </Link>
-            </div>
-          );
-        })}
+      <p>ID: {id}</p>
+      <p>Name: {singleData.name}</p>
+      <div className="flex justify-center">
+        <img className="h-24 w-24" src={singleData.image} />
       </div>
     </div>
   );
