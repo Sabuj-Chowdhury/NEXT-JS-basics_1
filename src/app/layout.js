@@ -25,9 +25,7 @@ export default function RootLayout({ children }) {
       >
         {/* navbar */}
         <Navbar></Navbar>
-        <main className=" text-center min-h-[calc(100vh-130px)] place-content-center place-items-center ">
-          {children}
-        </main>
+        <main className=" min-h-[calc(100vh-130px)]  ">{children}</main>
         {/* footer */}
         <footer className="text-center bg-slate-600">
           Just a normal footer
