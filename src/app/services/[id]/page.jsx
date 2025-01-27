@@ -62,16 +62,19 @@ const page = async ({ params }) => {
 
   // Find the specific coffee based on the id
   const singleData = data.find((coffee) => coffee.id === parseInt(id));
-
-  return (
-    <div>
-      <p>ID: {id}</p>
-      <p>Name: {singleData.name}</p>
-      <div className="flex justify-center">
-        <img className="h-24 w-24" src={singleData.image} />
+  if (singleData) {
+    return (
+      <div>
+        <p>ID: {id}</p>
+        <p>Name: {singleData.name}</p>
+        <div className="flex justify-center">
+          <img className="h-24 w-24" src={singleData.image} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <>Not found</>;
+  }
 };
 
 export default page;
